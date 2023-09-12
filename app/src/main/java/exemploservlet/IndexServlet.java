@@ -11,6 +11,9 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "IndexServlet", urlPatterns = "/")
 public class IndexServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().print("Olá Servlet");
+       // response.getWriter().print("Olá Servlet");
+       String n = request.getParameter( "nome");
+       request.setAttribute("nome", n);
+       request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }
